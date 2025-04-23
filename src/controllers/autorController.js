@@ -1,4 +1,4 @@
-import autor, { autor } from "../models/Autor.js";
+import { autor, autorSchema } from "../models/Autor.js";
 
 class AutoresController {
 
@@ -14,7 +14,7 @@ class AutoresController {
   static async listarAutorPorId (req, res) {
     try {
       const id = req.params.id;
-      const autorEncontrado = await livautorro.findById(id);
+      const autorEncontrado = await autor.findById(id);
       res.status(200).json(autorEncontrado);
     } catch (erro) {
       res.status(500).json({ message: `${erro.message} - falha na requisição do autor` });
